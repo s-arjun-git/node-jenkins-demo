@@ -7,26 +7,29 @@ pipeline {
                 git 'https://github.com/s-arjun-git/node-jenkins-demo.git'
             }
         }
-
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                echo 'Building Docker image...'
-                sh 'docker build -t jenkins-node-app .'
+                script {
+                    dockerImage = docker.build("your-app:${GIT_COMMIT}")
+                }
             }
         }
-
         stage('Test') {
             steps {
-                echo 'Running tests...'
-                sh 'npm test'
+                script {
+                    // replace with your test framework, if any
+                    dockerImage.inside {
+                        sh 'echo "Run tests here"'
+                    }
+                }
             }
         }
-
         stage('Deploy') {
             steps {
-                echo 'Deploying the Docker container...'
-                sh 'docker stop node-app || true && docker rm node-app || true'
-                sh 'docker run -d --name node-app -p 3000:3000 jenkins-node-app'
+                script {
+                    // Simple deployment: run the container (customize as needed)
+                    sh 'docker run -d --rm --name your-app -p 8080:8080 your-app:${GIT_COMMIT}'
+                }
             }
         }
     }
