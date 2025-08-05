@@ -61,3 +61,11 @@ git remote set-url origin https://s-arjun-git:github_pat_11BPIKEZY0pjE9QPK23tQn_
 git remote set-url origin "https://s-arjun-git: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@github.com/s-arjun-git/node-jenkins-demo.git"
 git push origin main
 git push origin master
+git remote -v
+git push origin master
+git remote set-url origin https://s-arjun-git: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@github.com/s-arjun-git/node-jenkins-demo.git
+git add .
+git commit -m "Initial commit"
+git push origin master
+git push origin main
+git push origin master
