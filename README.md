@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Simple Jenkins Pipeline for CI/CD 🚀
 
 This project demonstrates how to build and deploy a application using a CI/CD pipeline with **Jenkins** and **Docker**.
@@ -35,7 +33,4 @@ This project demonstrates how to build and deploy a application using a CI/CD pi
 ```bash
 docker build -t node-jenkins-demo .
 docker run -p 3000:3000 -d node-jenkins-demo
-# node-jenkins-demo
-simple jenkins pipeline for CI/CD
->>>>>>> d835e00 (Add README with CI/CD and Docker info)
 
